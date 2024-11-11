@@ -1,0 +1,83 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Configuração da imagem de fundo animada */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('background.jpg'); /* Substitua 'background.jpg' pelo nome do arquivo da sua imagem */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.3; /* Ajuste para mais ou menos visível */
+    animation: mover-fundo 30s linear infinite;
+}
+
+/* Animação do fundo se movendo */
+@keyframes mover-fundo {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50px, -50px); }
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(34, 34, 34, 0.8); /* Fundo semi-transparente */
+}
+
+.categoria {
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para contraste */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.categoria h2 {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 24px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 5px;
+}
+
+.jogos {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.jogo {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.jogo a {
+    display: block;
+}
+
+.jogo img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de aproximação */
+.jogo:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.6);
+}
